@@ -1,6 +1,10 @@
-# Method
+---
+layout: default
+title: "Method"
+nav_order: 5
+---
 
-[Back to contents](index.md)
+# Method
 
 ## Independent particles
 
@@ -46,13 +50,19 @@ writes this quantity itself (`EPSILON_BSE_ab.OUT`), so the two can be compared. 
 prints
 
 ```
-linear check Im eps_22 vs ELK EPSILON_BSE: corr 1.0000, median ratio 1.0000
+  [2/3] Check against EPSILON_BSE_22.OUT of ELK
+        correlation 1.0000, amplitude ratio 1.0000: passed
 ```
 
 The correlation tests the reading of the files and the phase convention of the
-eigenvectors, and the ratio tests the normalisation. In our runs the correlation is 1.0000
-and the ratio is between 0.994 and 1.000. If the correlation is not 1, the files were not
-read correctly and the second-order result must not be used.
+eigenvectors, and the ratio tests the normalisation. The check passes if the correlation
+is above 0.999 and the ratio is within 2 % of 1. In our runs the correlation is 1.0000 and
+the ratio is between 0.994 and 1.000. If the check reports `FAILED`, the files were not
+read correctly or belong to different runs, and the second-order result must not be used.
+
+With a scissor shift (`--scissor`) the comparison is made with the ELK spectrum shifted by
+the same amount. It is then only approximate, because the shift also changes the
+amplitudes, and it is reported as such. Run once without the shift to make the exact check.
 
 ## Scissor shift
 
