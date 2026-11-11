@@ -4,7 +4,7 @@
 
 [![tests](https://github.com/yucj-520/exshg/actions/workflows/tests.yml/badge.svg)](https://github.com/yucj-520/exshg/actions/workflows/tests.yml)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](LICENSE)
-![Python 3.9+](https://img.shields.io/badge/python-3.9%2B-blue.svg)
+![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue.svg)
 
 `exshg` computes the second-order optical susceptibility χ⁽²⁾(2ω; ω, ω) of a crystal
 **including excitons**. It is a post-processing tool for the all-electron code
@@ -28,7 +28,7 @@ their strength ([tutorial](docs/tutorial.md)).*
 pip install git+https://github.com/yucj-520/exshg.git
 ```
 
-Requirements: Python 3.9 or newer and NumPy. ELK 11.2.3 (built with gfortran) is needed
+Requirements: Python 3.10 or newer and NumPy. ELK 11.2.3 (built with gfortran) is needed
 to produce the input data. See [Installation](docs/install.md).
 
 ## Quick start

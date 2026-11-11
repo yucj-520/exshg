@@ -16,7 +16,7 @@ cd exshg
 pip install .
 ```
 
-Requirements: Python 3.9 or newer and NumPy. Matplotlib is needed only for the example
+Requirements: Python 3.10 or newer and NumPy. Matplotlib is needed only for the example
 plots (`pip install "exshg[plot] @ git+https://github.com/yucj-520/exshg.git"`).
 
 Check the installation:
