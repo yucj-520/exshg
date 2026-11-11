@@ -23,3 +23,21 @@ jobs:
         run: exshg --help
       - name: Tests
         run: pytest -q
+
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - name: Build and check the distribution
+        run: |
+          pip install build twine
+          python -m build
+          twine check --strict dist/*
+          ls -l dist
+      - name: Install the wheel and run
+        run: |
+          pip install dist/*.whl
+          cd /tmp && exshg --help && python -c "import exshg; print(exshg.__version__)"

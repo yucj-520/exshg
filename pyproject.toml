@@ -1,5 +1,5 @@
 [build-system]
-requires = ["hatchling"]
+requires = ["hatchling>=1.27"]
 build-backend = "hatchling.build"
 
 [project]
@@ -8,10 +8,14 @@ version = "0.2.0"
 description = "Second-harmonic generation with excitons from ELK Bethe-Salpeter calculations"
 readme = "README.md"
 requires-python = ">=3.10"
-license = { file = "LICENSE" }
+license = "GPL-3.0-or-later"
+license-files = ["LICENSE"]
 authors = [{ name = "Cuiju Yu" }]
+keywords = ["second-harmonic generation", "nonlinear optics", "excitons", "Bethe-Salpeter equation", "ELK", "DFT"]
 classifiers = [
-    "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "Operating System :: OS Independent",
     "Programming Language :: Python :: 3",
     "Topic :: Scientific/Engineering :: Physics",
 ]
@@ -21,8 +25,17 @@ dependencies = ["numpy>=1.24"]
 dev = ["pytest>=7"]
 plot = ["matplotlib>=3.6"]
 
+[project.urls]
+Homepage = "https://github.com/yucj-520/exshg"
+Documentation = "https://yucj-520.github.io/exshg/"
+Repository = "https://github.com/yucj-520/exshg"
+Issues = "https://github.com/yucj-520/exshg/issues"
+
 [project.scripts]
 exshg = "exshg.cli:main"
 
 [tool.hatch.build.targets.wheel]
 packages = ["exshg"]
+
+[tool.hatch.build.targets.sdist]
+include = ["exshg", "tests", "examples", "docs", "README.md", "LICENSE", "CITATION.cff"]

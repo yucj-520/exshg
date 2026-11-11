@@ -3,7 +3,7 @@
 **Second-harmonic generation with excitons from ELK Bethe–Salpeter calculations**
 
 [![tests](https://github.com/yucj-520/exshg/actions/workflows/tests.yml/badge.svg)](https://github.com/yucj-520/exshg/actions/workflows/tests.yml)
-[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](LICENSE)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://github.com/yucj-520/exshg/blob/main/LICENSE)
 ![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue.svg)
 
 `exshg` computes the second-order optical susceptibility χ⁽²⁾(2ω; ω, ω) of a crystal
@@ -17,10 +17,10 @@
 
 The ELK source is not modified, and no additional ELK run is needed.
 
-![chi2 of monolayer MoS2 with and without excitons](examples/mos2_monolayer/mos2_shg.png)
+![chi2 of monolayer MoS2 with and without excitons](https://raw.githubusercontent.com/yucj-520/exshg/main/examples/mos2_monolayer/mos2_shg.png)
 
 *Monolayer MoS₂: the excitons move the SHG resonances to the exciton energies and change
-their strength ([tutorial](docs/tutorial.md)).*
+their strength ([tutorial](https://yucj-520.github.io/exshg/tutorial.html)).*
 
 ## Installation
 
@@ -29,7 +29,7 @@ pip install git+https://github.com/yucj-520/exshg.git
 ```
 
 Requirements: Python 3.10 or newer and NumPy. ELK 11.2.3 (built with gfortran) is needed
-to produce the input data. See [Installation](docs/install.md).
+to produce the input data. See [Installation](https://yucj-520.github.io/exshg/install.html).
 
 ## Quick start
 
@@ -65,7 +65,7 @@ to produce the input data. See [Installation](docs/install.md).
    without excitons in pm/V.
 
 A complete example with all files and the expected output is in the
-[tutorial](docs/tutorial.md).
+[tutorial](https://yucj-520.github.io/exshg/tutorial.html).
 
 ## Documentation
 
@@ -73,18 +73,18 @@ A complete example with all files and the expected output is in the
 
 | Page | Content |
 |---|---|
-| [Installation](docs/install.md) | `pip install`, requirements, ELK |
-| [Tutorial: monolayer MoS₂](docs/tutorial.md) | the full workflow, step by step, with the expected output |
-| [Example: MoS₂/WSe₂ tetralayer](docs/tetralayer.md) | a 12-atom heterostructure with spin–orbit coupling |
-| [Method](docs/method.md) | equations, approximations and the built-in check |
-| [Reference](docs/reference.md) | command line, Python function, output files, units, troubleshooting |
+| [Installation](https://yucj-520.github.io/exshg/install.html) | `pip install`, requirements, ELK |
+| [Tutorial: monolayer MoS₂](https://yucj-520.github.io/exshg/tutorial.html) | the full workflow, step by step, with the expected output |
+| [Example: MoS₂/WSe₂ tetralayer](https://yucj-520.github.io/exshg/tetralayer.html) | a 12-atom heterostructure with spin–orbit coupling |
+| [Method](https://yucj-520.github.io/exshg/method.html) | equations, approximations and the built-in check |
+| [Reference](https://yucj-520.github.io/exshg/reference.html) | command line, Python function, output files, units, troubleshooting |
 
 ## Examples
 
 | Example | System | Files |
 |---|---|---|
-| [`examples/mos2_monolayer`](examples/mos2_monolayer) | monolayer MoS₂, 12 × 12 k-mesh | input, reference spectrum, plot |
-| [`examples/mos2_wse2_tetralayer`](examples/mos2_wse2_tetralayer) | MoS₂/WSe₂ tetralayer, H-like and R-like stacking, 6 × 6 k-mesh | inputs, reference spectra, plot |
+| [`examples/mos2_monolayer`](https://github.com/yucj-520/exshg/tree/main/examples/mos2_monolayer) | monolayer MoS₂, 12 × 12 k-mesh | input, reference spectrum, plot |
+| [`examples/mos2_wse2_tetralayer`](https://github.com/yucj-520/exshg/tree/main/examples/mos2_wse2_tetralayer) | MoS₂/WSe₂ tetralayer, H-like and R-like stacking, 6 × 6 k-mesh | inputs, reference spectra, plot |
 
 ## Method in brief
 
@@ -92,7 +92,7 @@ The independent-particle χ⁽²⁾ is obtained from the length-gauge density ma
 order (Aversa and Sipe). On the transitions included in the BSE, the propagator of the
 second-harmonic step, 1/(ω_cv − 2ω), is replaced by the exciton propagator built from the
 BSE eigenvalues and eigenvectors of ELK. All other transitions keep their
-independent-particle form. Details are in [Method](docs/method.md).
+independent-particle form. Details are in [Method](https://yucj-520.github.io/exshg/method.html).
 
 **Built-in check.** The same replacement at first order must reproduce the BSE dielectric
 function that ELK writes itself. Every run prints this comparison, so a wrongly read file
@@ -113,7 +113,7 @@ approximation.
 
 ## Citation
 
-If you use `exshg`, please cite this repository (see [`CITATION.cff`](CITATION.cff)).
+If you use `exshg`, please cite this repository (see [`CITATION.cff`](https://github.com/yucj-520/exshg/blob/main/CITATION.cff)).
 A publication describing the method and its first application is in preparation.
 
 ## Licence and author
