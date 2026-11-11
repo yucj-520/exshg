@@ -1,0 +1,85 @@
+! MoS2/WSe2 tetralayer (2L WSe2 on 2L MoS2), H-like stacking (ABAB), relaxed structure, 40 A cell.
+! PBE with spin-orbit coupling. Ground state, momentum matrix elements (120), dielectric
+! function (121) and BSE in the Tamm-Dancoff approximation (180, 185-187) on a Gamma-centred
+! 6x6 mesh with 16 valence and 16 conduction bands (9216 transitions).
+! The cell has no symmetry, so every file contains the full 36-point grid.
+
+tasks
+  0
+  120
+  121
+  180
+  185
+  186
+  187
+
+spinorb
+  .true.
+
+nempty
+  20
+
+scissor
+  0.0
+
+swidth
+  0.003
+
+optcomp
+  2 2 2
+  1 1 2
+  2 1 1
+  1 2 1
+
+ngridk
+  6 6 1
+
+vkloff
+  0.0  0.0  0.0
+
+wplot
+  600  100  0  : nwplot, ngrkf, nswplot
+  0.0  0.15    : wplot
+
+xctype
+  20
+
+sppath
+  '/path/to/elk/species/'
+
+avec
+        6.09616554      0.00025668      0.00000000
+       -3.04526926      5.27984138      0.00000000
+       -0.00012826     -0.00022185     75.58904498
+
+atoms
+  4
+  'Se.in'
+    4
+      0.86705864  0.40141267  0.61638535
+      0.86714336  0.40139946  0.53084300
+      0.19885060  0.06786325  0.78152134
+      0.19888786  0.06785979  0.69592373
+  'W.in'
+    2
+      0.20056662  0.06803036  0.57361972
+      0.86539759  0.40122700  0.73869789
+  'Mo.in'
+    2
+      0.20686204  0.07568475  0.25927279
+      0.87613561  0.39717489  0.41347537
+  'S.in'
+    4
+      0.87337619  0.40898355  0.29785387
+      0.87335646  0.40905329  0.22064233
+      0.20959353  0.06374932  0.45204879
+      0.20958254  0.06383126  0.37491295
+
+nvbse
+  16
+
+ncbse
+  16
+
+gmaxrf
+  2.0

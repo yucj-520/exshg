@@ -75,7 +75,11 @@ def excitonic_shg(bse_dir, component="222", scissor=0.0, wmax_ev=1.8, every=4, v
     d = Path(bse_dir)
     say = print if verbose else (lambda *a, **k: None)
     ia, ib, ic = (int(x) - 1 for x in component)
-    if float(input_value(d, "scissor")[0]) != 0.0:
+    try:
+        elk_scissor = float(input_value(d, "scissor")[0])
+    except KeyError:                                   # block absent: ELK default is 0
+        elk_scissor = 0.0
+    if elk_scissor != 0.0:
         raise ValueError("the ELK run must have scissor 0 (use the scissor argument here instead)")
     eta = float(input_value(d, "swidth")[0])
     nv, nc = int(input_value(d, "nvbse")[0]), int(input_value(d, "ncbse")[0])

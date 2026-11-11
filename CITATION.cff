@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "exshg: second-harmonic generation with excitons from ELK Bethe-Salpeter calculations"
+type: software
+authors:
+  - family-names: Yu
+    given-names: Cuiju
+    affiliation: Aalto University
+version: 0.2.0
+date-released: 2026-11-11
+license: GPL-3.0-or-later
+repository-code: "https://github.com/yucj-520/exshg"
