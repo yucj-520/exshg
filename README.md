@@ -17,7 +17,7 @@
 
 The ELK source is not modified, and no additional ELK run is needed.
 
-![chi2 of monolayer MoS2 with and without excitons](https://raw.githubusercontent.com/yucj-520/exshg/main/examples/mos2_monolayer/mos2_shg.png)
+![chi2 of monolayer MoS2 with and without excitons](https://raw.githubusercontent.com/yucj-520/exshg/main/examples/mos2_monolayer/reference/XSHG_BSE_222.png)
 
 *Monolayer MoS₂: the excitons move the SHG resonances to the exciton energies and change
 their strength ([tutorial](https://yucj-520.github.io/exshg/tutorial.html)).*
@@ -56,13 +56,15 @@ to produce the input data. See [Installation](https://yucj-520.github.io/exshg/i
 2. Run `exshg` in the directory of that run:
 
    ```bash
-   exshg . 222 --txt
+   exshg . 222 --plot
    ```
 
-   `222` selects the component χ_yyy.
+   `222` selects the component χ_yyy. For a two-dimensional material, add
+   `--thickness d` (in Å) to obtain the value for a film of that thickness.
 
 3. Read the result: `XSHG_BSE_222.txt` contains the photon energy and χ⁽²⁾ with and
-   without excitons in pm/V.
+   without excitons in pm/V, `XSHG_BSE_222.png` shows both curves, and
+   `XSHG_BSE_222.npz` holds the full data.
 
 A complete example with all files and the expected output is in the
 [tutorial](https://yucj-520.github.io/exshg/tutorial.html).
@@ -83,8 +85,8 @@ A complete example with all files and the expected output is in the
 
 | Example | System | Files |
 |---|---|---|
-| [`examples/mos2_monolayer`](https://github.com/yucj-520/exshg/tree/main/examples/mos2_monolayer) | monolayer MoS₂, 12 × 12 k-mesh | input, reference spectrum, plot |
-| [`examples/mos2_wse2_tetralayer`](https://github.com/yucj-520/exshg/tree/main/examples/mos2_wse2_tetralayer) | MoS₂/WSe₂ tetralayer, H-like and R-like stacking, 6 × 6 k-mesh | inputs, reference spectra, plot |
+| [`examples/mos2_monolayer`](https://github.com/yucj-520/exshg/tree/main/examples/mos2_monolayer) | monolayer MoS₂, 12 × 12 k-mesh | input, reference table and figure |
+| [`examples/mos2_wse2_tetralayer`](https://github.com/yucj-520/exshg/tree/main/examples/mos2_wse2_tetralayer) | MoS₂/WSe₂ tetralayer, H-like and R-like stacking, 6 × 6 k-mesh | inputs, reference tables and figures |
 
 ## Method in brief
 
@@ -95,8 +97,8 @@ BSE eigenvalues and eigenvectors of ELK. All other transitions keep their
 independent-particle form. Details are in [Method](https://yucj-520.github.io/exshg/method.html).
 
 **Built-in check.** The same replacement at first order must reproduce the BSE dielectric
-function that ELK writes itself. Every run prints this comparison, so a wrongly read file
-or an inconsistent run is detected immediately.
+function that ELK writes itself. Every run makes this comparison and reports `passed` or
+`FAILED`, so a wrongly read file or an inconsistent run is detected immediately.
 
 **Approximations.** Excitons enter only at 2ω; the step at ω is independent-particle and
 transitions between excitons are not included. The BSE is solved in the Tamm–Dancoff

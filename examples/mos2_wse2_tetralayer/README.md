@@ -8,14 +8,20 @@ bilayer WSe₂ on bilayer MoS₂ (12 atoms, PBE with spin–orbit coupling, 6 ×
 cd H-like                            # then the same in R-like
 # set sppath in elk.in to your ELK species directory
 mpirun -np 40 elk > elk.out
-exshg . 222 --txt
+exshg . 222 --thickness 27 --plot
 cd ..
 python plot.py H-like/XSHG_BSE_222.txt R-like/XSHG_BSE_222.txt my_result.png
 ```
 
-Reference results (`reference/`, figure `tetralayer_shg.png`), for a film of thickness 27 Å:
+| File | Content |
+|---|---|
+| `H-like/elk.in`, `R-like/elk.in` | ELK inputs |
+| `reference/H-like/`, `reference/R-like/` | reference table and figure written by `exshg` for each stacking |
+| `plot.py`, `tetralayer_shg.png` | both stackings side by side |
 
-| Stacking | Mean for 2ħω = 1.8–2.25 eV, independent particles | same, with excitons | Maximum with excitons in this range |
+Reference results for a film of thickness 27 Å:
+
+| Stacking | Mean for 2ħω = 1.8–2.25 eV, independent particles | Same, with excitons | Maximum with excitons in this range |
 |---|---|---|---|
 | H-like | 21.6 pm/V | 78.5 pm/V | 96.3 pm/V at 2.03 eV |
 | R-like | 43.1 pm/V | 64.1 pm/V | 94.2 pm/V at 2.08 eV |
@@ -23,4 +29,4 @@ Reference results (`reference/`, figure `tetralayer_shg.png`), for a film of thi
 ![chi2 of the MoS2/WSe2 tetralayer](tetralayer_shg.png)
 
 The full description, the expected output and the computational cost are in the
-[documentation](../../docs/tetralayer.md).
+[documentation](https://yucj-520.github.io/exshg/tetralayer.html).

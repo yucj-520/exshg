@@ -2,8 +2,8 @@
 """Plot |chi_yyy| of the MoS2/WSe2 tetralayer with and without excitons, both stackings.
 
 usage: python plot.py [H_table.txt R_table.txt] [out.png]
-The tables are --txt outputs of exshg (default: the reference spectra shipped here).
-Values are rescaled from the 40 A supercell to a film of thickness 27 A.
+The tables are the .txt files written by `exshg . 222 --thickness 27`
+(default: the reference tables shipped here).
 """
 import sys
 from pathlib import Path
@@ -14,18 +14,17 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 here = Path(__file__).resolve().parent
-tables = sys.argv[1:3] if len(sys.argv) > 2 else [here / "reference" / "XSHG_BSE_222_H.txt",
-                                                  here / "reference" / "XSHG_BSE_222_R.txt"]
+tables = sys.argv[1:3] if len(sys.argv) > 2 else [here / "reference" / "H-like" / "XSHG_BSE_222.txt",
+                                                  here / "reference" / "R-like" / "XSHG_BSE_222.txt"]
 out = sys.argv[3] if len(sys.argv) > 3 else here / "tetralayer_shg.png"
-CELL, FILM = 40.0, 27.0                                # Angstrom
 
 plt.rcParams.update({"font.size": 13})
 fig, axs = plt.subplots(1, 2, figsize=(9.6, 5.0), sharey=True)
 for ax, table, title in zip(axs, tables, ("H-like stacking", "R-like stacking")):
     d = np.loadtxt(table)
     e2 = d[:, 1]
-    ip = np.abs(d[:, 2] + 1j * d[:, 3]) * CELL / FILM
-    bse = np.abs(d[:, 4] + 1j * d[:, 5]) * CELL / FILM
+    ip = np.abs(d[:, 2] + 1j * d[:, 3])
+    bse = np.abs(d[:, 4] + 1j * d[:, 5])
     ax.plot(e2, ip, "--", color="0.45", lw=1.8, label="independent particles")
     ax.plot(e2, bse, "-", color="#CC3311", lw=2.4, label="with excitons (BSE)")
     ax.set_title(title, fontsize=13)

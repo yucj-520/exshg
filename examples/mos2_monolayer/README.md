@@ -6,18 +6,16 @@ ELK input and reference result for χ⁽²⁾_yyy of free-standing monolayer MoS
 ```bash
 # set sppath in elk.in to your ELK species directory
 mpirun -np 20 elk > elk.out
-exshg . 222 --txt
-python plot.py XSHG_BSE_222.txt my_result.png
+exshg . 222 --thickness 6.15 --plot
 ```
 
-Expected output of `exshg`:
+| File | Content |
+|---|---|
+| `elk.in` | ELK input |
+| `reference/XSHG_BSE_222.txt` | reference table written by the command above |
+| `reference/XSHG_BSE_222.png` | reference figure written by the command above |
 
-```
-linear check Im eps_22 vs ELK EPSILON_BSE: corr 1.0000, median ratio 1.0000
-```
+![chi2 of monolayer MoS2](reference/XSHG_BSE_222.png)
 
-Reference result: `reference/XSHG_BSE_222.txt` and `mos2_shg.png`.
-
-![chi2 of monolayer MoS2](mos2_shg.png)
-
-The step-by-step description is in the [tutorial](../../docs/tutorial.md).
+The step-by-step description with the expected screen output is in the
+[tutorial](https://yucj-520.github.io/exshg/tutorial.html).

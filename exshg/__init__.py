@@ -1,5 +1,6 @@
 """exshg: second-harmonic generation with excitons from ELK Bethe-Salpeter calculations."""
-from .core import AU_PMV, HA_EV, excitonic_shg
+__version__ = "0.3.0"
 
-__version__ = "0.2.0"
-__all__ = ["excitonic_shg", "HA_EV", "AU_PMV", "__version__"]
+from .core import AU_PMV, HA_EV, ExshgError, excitonic_shg, film_factor  # noqa: E402
+
+__all__ = ["excitonic_shg", "film_factor", "ExshgError", "HA_EV", "AU_PMV", "__version__"]
